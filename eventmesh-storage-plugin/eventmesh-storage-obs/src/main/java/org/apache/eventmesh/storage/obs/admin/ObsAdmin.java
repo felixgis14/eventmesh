@@ -87,13 +87,12 @@ public class ObsAdmin extends AbstractAdmin {
     Preconditions.checkNotNull(cloudEvent);
     try {
       String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+      obsBroker.putMessage(uuid, cloudEvent);
       //给Event填充数据
       Disruptor<CloudMessageEvent> disruptor = obsBroker.getDisruptor();
       RingBuffer<CloudMessageEvent> ringBuffer = disruptor.getRingBuffer();
       CloudMessageEventProducer producer = new CloudMessageEventProducer(ringBuffer);
       producer.onData(uuid, cloudEvent.getSubject());
-
-      obsBroker.putMessage(uuid, cloudEvent);
     } catch (Exception e) {
       log.error("failed to add event to ringBuffer for : e = {},{}", e, e.getMessage());
     }
