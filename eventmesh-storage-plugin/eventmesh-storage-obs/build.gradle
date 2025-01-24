@@ -1,0 +1,21 @@
+dependencies {
+    implementation project(":eventmesh-common")
+    implementation project(":eventmesh-storage-plugin:eventmesh-storage-api")
+    implementation "com.lmax:disruptor"
+
+    // obs
+    implementation 'com.huaweicloud:esdk-obs-java-bundle:3.24.12'
+
+    // auxiliary serialize
+    api 'io.cloudevents:cloudevents-json-jackson'
+
+    // test dependencies
+    testImplementation "org.mockito:mockito-inline"
+    testImplementation "org.mockito:mockito-junit-jupiter"
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}

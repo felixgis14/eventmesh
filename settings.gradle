@@ -84,6 +84,7 @@ include 'eventmesh-storage-plugin:eventmesh-storage-pulsar'
 include 'eventmesh-storage-plugin:eventmesh-storage-redis'
 include 'eventmesh-storage-plugin:eventmesh-storage-rocketmq'
 include 'eventmesh-storage-plugin:eventmesh-storage-rabbitmq'
+include 'eventmesh-storage-plugin:eventmesh-storage-obs'
 
 include 'eventmesh-security-plugin'
 include 'eventmesh-security-plugin:eventmesh-security-api'
